@@ -29,6 +29,6 @@ const walkDir = path => {
 	}(path)).then(() => results)
 }
 
-walkDir('D:\\Music')
+walkDir('/some/folder')
 	.then(console.log.bind(console))
 	.catch(console.log.bind(console))
