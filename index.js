@@ -1,15 +1,19 @@
-const fs = require('fs')
 const _path = require('path')
 
-const promisify = fn => (...args) => new Promise((resolve, reject) => {
-	args.push((err, data) => err ? reject(err) : resolve(data))
-	fn(...args)
-})
+const promisifyAll = (srcObj, ...methods) => methods.reduce((targetObj, method) => {
+	targetObj[method] = (...args) => new Promise((resolve, reject) => {
+			args.push((err, data) => err ? reject(err) : resolve(data))
+			srcObj[method](...args)
+		})
+	return targetObj
+}, {})
 
-const pathInfo = path => promisify(fs.stat)(path)
+const fs = promisifyAll(require('fs'), 'stat', 'readdir')
+
+const pathInfo = path => fs.stat(path)
 	.then(stats => ({ path, isDir: stats.isDirectory() }))
 
-const readdir = path => promisify(fs.readdir)(path)
+const readdir = path => fs.readdir(path)
 	.then( contents => contents.map(filename => _path.join(path, filename)) )
 
 module.exports = function(path) {
