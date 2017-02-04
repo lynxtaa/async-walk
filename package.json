@@ -1,0 +1,19 @@
+{
+  "name": "async-walk",
+  "version": "1.0.0",
+  "description": "Асинхронный рекурсивный обход папки. Возвращает массив путей файлов",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lynxtaa/async-walk.git"
+  },
+  "author": "Lynxtaa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lynxtaa/async-walk/issues"
+  },
+  "homepage": "https://github.com/lynxtaa/async-walk#readme"
+}

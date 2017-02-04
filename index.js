@@ -12,7 +12,7 @@ const pathInfo = path => promisify(fs.stat)(path)
 const readdir = path => promisify(fs.readdir)(path)
 	.then( contents => contents.map(filename => _path.join(path, filename)) )
 
-const walkDir = path => {
+module.exports = function(path) {
 	const results = []
 
 	return (function walk(path) {
@@ -28,7 +28,3 @@ const walkDir = path => {
 			})
 	}(path)).then(() => results)
 }
-
-walkDir('/some/folder')
-	.then(console.log.bind(console))
-	.catch(console.log.bind(console))
