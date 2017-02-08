@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/lynxtaa/async-walk/issues"
   },
-  "homepage": "https://github.com/lynxtaa/async-walk#readme"
+  "homepage": "https://github.com/lynxtaa/async-walk#readme",
+  "dependencies": {
+    "promisify": "git+https://github.com/lynxtaa/promisify.git"
+  }
 }

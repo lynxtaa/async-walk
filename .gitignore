@@ -1,0 +1,5 @@
+node_modules
+*.sublime-project
+*.sublime-workspace
+_todo
+npm-debug.log

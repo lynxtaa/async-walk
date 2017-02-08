@@ -1,14 +1,6 @@
 const _path = require('path')
-
-const promisifyAll = (srcObj, ...methods) => methods.reduce((targetObj, method) => {
-	targetObj[method] = (...args) => new Promise((resolve, reject) => {
-			args.push((err, data) => err ? reject(err) : resolve(data))
-			srcObj[method](...args)
-		})
-	return targetObj
-}, {})
-
-const fs = promisifyAll(require('fs'), 'stat', 'readdir')
+const promisify = require('promisify')
+const fs = promisify.all(require('fs'))
 
 const pathInfo = path => fs.stat(path)
 	.then(stats => ({ path, isDir: stats.isDirectory() }))
