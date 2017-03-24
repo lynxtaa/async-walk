@@ -1,8 +1,9 @@
 {
   "name": "async-walk",
-  "version": "1.0.0",
-  "description": "Асинхронный рекурсивный обход папки. Возвращает массив путей файлов",
+  "version": "1.0.1",
+  "description": "Promise-based recursive walk within folder",
   "main": "index.js",
+  "keywords": ["walk", "readdir", "folder"],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,13 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/lynxtaa/async-walk.git"
   },
-  "author": "Lynxtaa",
+  "author": "Alex Kondratyuk <lynxtaa@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/lynxtaa/async-walk/issues"
   },
   "homepage": "https://github.com/lynxtaa/async-walk#readme",
   "dependencies": {
-    "promisify": "git+https://github.com/lynxtaa/promisify.git"
+    "pr-wrap": "^1.0.2"
   }
 }

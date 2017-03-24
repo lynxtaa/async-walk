@@ -1,6 +1,6 @@
 const _path = require('path')
-const promisify = require('promisify')
-const fs = promisify.all(require('fs'))
+const prWrap = require('pr-wrap')
+const fs = prWrap.all(require('fs'))
 
 const pathInfo = path => fs.stat(path)
 	.then(stats => ({ path, isDir: stats.isDirectory() }))
