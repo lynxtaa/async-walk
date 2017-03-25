@@ -13,7 +13,7 @@ require('async-walk')(path)
 
 - `path`  *`<string>`* path to folder
 
-Returns `Promise` which fulfills to array of file paths.
+Returns `Promise` which fulfills to array of absolute file paths.
 
 Usage
 --------
