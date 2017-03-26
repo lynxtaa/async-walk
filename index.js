@@ -8,20 +8,19 @@ const pathInfo = path => fs.stat(path)
 const readdir = path => fs.readdir(path)
 	.then( contents => contents.map(filename => join(path, filename)) )
 
-module.exports = function(path) {
-	const files = []
+module.exports = function walk(path) {
+	return readdir(path)
+		.then(contents => Promise.all( contents.map(pathInfo) ))
+		.then(pathInfoArr => {
+			const folders = []
+			const files = []
 
-	return (function walk(path) {
-		return readdir(path)
-			.then(contents => Promise.all( contents.map(path => pathInfo(path)) ))
-			.then(pathInfoArr => {
-				const folders = []
-
-				pathInfoArr.forEach(({isDir, path}) => {
-					(isDir ? folders : files).push(path)
-				})
-
-				return Promise.all(folders.map(walk))
+			pathInfoArr.forEach(({isDir, path}) => {
+				(isDir ? folders : files).push(path)
 			})
-	}(path)).then(() => files)
+
+			return Promise
+				.all(folders.map(walk))
+				.then(results => files.concat(...results))
+		})
 }
