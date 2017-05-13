@@ -3,13 +3,18 @@
   "version": "1.0.4",
   "description": "Promise-based recursive walk within folder",
   "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "keywords": [
     "walk",
     "readdir",
     "folder"
   ],
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "preversion": "npm run lint && npm test",
+    "lint": "eslint index.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +31,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
+    "eslint": "^3.19.0",
     "mocha": "^3.2.0"
   }
 }

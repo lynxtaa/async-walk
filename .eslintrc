@@ -1,0 +1,64 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+  ],
+  "parserOptions": {
+    "ecmaVersion": 7,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true
+    }
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jquery": true,
+    "mocha": true
+  },
+  "rules": {
+    // Possible Errors
+    "no-await-in-loop": 1,
+    "no-console": 1,
+    "no-debugger": 1,
+    "no-extra-parens": [1, "all", { "ignoreJSX": "multi-line" }],
+    "no-template-curly-in-string": 1,
+    "valid-jsdoc": 1,
+
+    // Best Practices
+    "class-methods-use-this": 1,
+    "dot-notation": 1,
+    "no-alert": 1,
+    "no-caller": 1,
+    "no-lone-blocks": 0,
+    "no-loop-func": 2,
+    "no-return-await": 2,
+    "no-throw-literal": 2,
+    "no-unused-expressions": 1,
+    "no-useless-call": 2,
+    "no-useless-escape": 2,
+    "require-await": 2,
+    "wrap-iife": 2,
+
+    // Node.js and CommonJS
+    "no-path-concat": 2,
+
+    // Stylistic Issues
+    "comma-spacing": 1,
+    "jsx-quotes": 1,
+    "no-unneeded-ternary": 2,
+    "quotes": 0,
+    "semi": [1, "never"],
+    "unicode-bom": 1,
+
+    // ECMAScript 6
+    "object-shorthand": [1, "always", { "avoidQuotes": true }],
+    "no-duplicate-imports": 2,
+    "no-useless-constructor": 1,
+    "prefer-rest-params": 2,
+    "prefer-spread": 2,
+  },
+  "globals": {}
+}
